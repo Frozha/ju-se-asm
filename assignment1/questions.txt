@@ -1,0 +1,9 @@
+Assignment 1
+
+1.	Write an Assembly Language Program to add two byte integers and store the result in DX register.
+2.	Write an 8086 Assembly Language Program to subtract two 8-bit signed integers. The numbers can be stored in the data segment.
+3.	Write an Assembly Language Program to print your name, which is stored in memory as a string.
+4.	Write an Assembly Language Program to reverse a string using stack and display the result.
+5.	Write an 8086 Assembly Language Program which will ask for a number and the no. will be taken from keyboard. Print the number in decimal, binary and hexadecimal format.
+6.	Now modify the program in Q2 so that it will ask for your name and takes the input from keyboard.
+7.	Write an Assembly Language Program to check the length of a given string.
