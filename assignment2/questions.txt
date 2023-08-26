@@ -1,0 +1,15 @@
+Assignment 2
+
+1.Write an assembly language program to display the first 10 Fibonacci numbers.
+2.Write an assembly language program to search the largest number in an array of ten 8-bit numbers. The array elements will be stored in the data segment.
+3.Write an assembly language program to sort in descending order using bubble sort algorithm a given set of byte sized unsigned numbers in memory. 
+4.Write an assembly language program to search for a given 8-bits key using linear search in an array of 10 numbers. The search key will be asked to enter from the keyboard. A message should be displayed indicating whether the search was a success or a failure. If it is a successful case, the position of the number in the array is to be displayed.
+5.Write a program to check whether a 16-bit number is a palindrome or not. The number will be entered from the keyboard. 
+6.Write a program to display the G.C.D. of two numbers M and N. Assume that the variables M and N are declared and initialized in the data segment.
+7.Write an assembly language program to compare two strings.
+8.Write a program to add two 32-bit numbers and store the result in consecutive memory locations.
+9.Assume that two variables x and y are stored in packed BCD format. Write an 8086 alp to add x and y using DAA and display the result in packed BCD format also. Do the same addition without using DAA.
+10.Write an 8086 alp to rename a file, if it exists, using DOS interrupt. Otherwise display an error message. 
+11.Write a swap procedure that accepts the address of two words, and it exchanges the contents of those words. Write a program to initialize two variables and after the execution of the swap, the procedure displays the contents of the words. (Parameter passing needs to be done).   
+12.Write an assembly language program to multiply two 3x3 matrices of signed 8-bit integers. Display result. Assume that each of the elements of the product matrix can be stored in an 8-bit location.
+13.Write an assembly language program to get the screen width (no of cols) using BIOS interrupt and calculate the no. of rows from the appropriate word location in BIOS data area and clear the screen using BIOS interrupt. 
