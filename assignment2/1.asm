@@ -1,5 +1,5 @@
-tostr macro number, string
-    mov si, offset string
+tostr macro number, strng1
+    mov si, offset strng1
     mov bh, cl;storing outer loop cx
     mov cl, 10
     mov ch, 1
@@ -13,7 +13,7 @@ tostr macro number, string
         mov al, dl
         div ch
         cmp ah, dl
-        je unloadstack:
+        je unloadstack
         add al, 48
         xor ah, ah
         push ax
@@ -33,40 +33,8 @@ tostr macro number, string
         loop loop1
     xor cx,cx
     mov cl, bh
-endm    
-.model small
-.stack 100h
-.data
-    ten db 10
-    numofitr db 5
-    currnum db ?
-    strng db 10 dup("$")
-.code
-    main proc
-        mov ax, @data
-        mov ds, ax
-
-        mov dx, 1
-        push dx
-        mov dx, 0
-        push dx
-        mov dx, 49
-        mov ah, 02h
-        int 21h
-        xor cx,cx
-        mov cl, numofitr
-        fibronacci:
-            call next
-            mov currnum, dl
-            tostr currnum strng
-            mov dx, offset strng1
-            mov ah, 09h
-            int21h
-        loop fibronacci:
-        mov ah, 4ch
-        int 21h
-    main endp
-    next proc
+endm   
+next macro
         pop ax
         pop bx
         ;a has latest value b has previous value now
@@ -78,5 +46,41 @@ endm
         push ax
         ;dx contains next value for fibronacci
         ;stack top also contains latest value at top
-    next endp
+    endm
+.model small
+.stack 100h
+.data
+    ten db 10
+    numofitr db 10
+    currnum db 0
+    strng db 10 dup("$")
+.code
+    main proc
+        mov ax, @data
+        mov ds, ax
+
+        mov dx, 1
+        push dx
+        mov dx, 0
+        push dx
+        mov dx, 48
+        mov ah, 02h
+        int 21h
+        mov dx, 32
+        mov ah, 02h
+        int 21h
+        xor cx,cx
+        mov cl, numofitr
+        fibronacci:
+            next
+            mov currnum, dl
+            tostr currnum, strng
+            mov dx, offset strng
+            mov ah, 09h
+            int 21h
+        loop fibronacci
+        mov ah, 4ch
+        int 21h
+    main endp
+    
     end main
