@@ -3,7 +3,6 @@
 .data
     num1 dd 2147483647
     num2 dd 2147483647     
-    ;2^31-1+2^31-1 is limit
     result dd ? 
     msg1 db 'overflow$' 
     msg2 db 'result in hex : $'
