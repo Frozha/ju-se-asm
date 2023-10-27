@@ -17,7 +17,7 @@
         mov bl, 10  
         mov bh, 0   
         mov cx, 0   
-        rep:   
+        rep1:   
             cmp al, bl
             jl exrep
             div bl
@@ -25,7 +25,7 @@
             mov dl, ah
             mov dh, 0
             push dx
-            jmp rep  
+            jmp rep1  
         exrep:
             inc cx
             mov dl, al

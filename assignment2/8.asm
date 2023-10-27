@@ -16,7 +16,10 @@
         mov dl, [si]
         
         mov bl, dl  
-        shr dl, 4   
+        shr dl, 1
+        shr dl, 1
+        shr dl, 1
+        shr dl, 1   
         and bl, 0Fh 
     
         add dl, '0'
@@ -70,7 +73,7 @@
             int 21h
             pop dx 
             mov si, offset result
-            mov word[si+2], dx
+            mov word ptr[si+2], dx
             add result, cx 
             add si,3
             call printhex 

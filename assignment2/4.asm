@@ -38,13 +38,15 @@
             mov ah, 09h
             int 21h
             jmp trmin
-        linsrch:
+        linsrch: 
+            mov di, 0
             mov cx, 10
             mov si, offset arr1
             srloop:
                 cmp dl, [si]
                 je found
                 inc si
+                inc di
             loop srloop
             mov dl, 13
             mov ah, 02h
@@ -64,7 +66,7 @@
                 mov dx, offset msg4
                 mov ah, 09h
                 int 21h
-                mov dx, si
+                mov dx, di
                 add dl, '0'
                 mov ah, 02h
                 int 21h

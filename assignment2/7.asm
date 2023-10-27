@@ -1,4 +1,5 @@
 .model small
+.stack 100h
 .data
     str1 db "Hello$" 
     str2 db "World$"
@@ -9,21 +10,21 @@ main proc
     mov ax, @data
     mov ds, ax
 
-    lea si, str1  ; Load address of the first string into SI
-    lea di, str2  ; Load address of the second string into DI
+    lea si, str1  
+    lea di, str2  
 
 compare_loop:
-    mov al, [si]  ; Load a character from the first string
-    mov bl, [di]  ; Load a character from the second string
+    mov al, [si]  
+    mov bl, [di] 
 
-    cmp al, bl    ; Compare the characters
-    jne strings_not_equal  ; Jump if characters are not equal
+    cmp al, bl    
+    jne strings_not_equal  
 
-    cmp al, '$'     ; Check if both strings have reached the null terminator
+    cmp al, '$'     
     je strings_equal
 
-    inc si        ; Move to the next character in the first string
-    inc di        ; Move to the next character in the second string
+    inc si        
+    inc di        
     jmp compare_loop
 
 strings_equal:
