@@ -1,13 +1,13 @@
 swp macro si, ax
     mov ax, [si]
-    mov [si], ah
+    mov byte ptr [si], ah
     inc si
-    mov [si], al
+    mov byte ptr [si], al
     dec si
 endm
 printarr macro arra
     push si
-    mov si, offset arra
+    mov si, offset arra 
     push cx
     mov cx, numofelem
     mov ah, 02h
@@ -55,7 +55,7 @@ endm
             loop2:
                 mov dx, [si]
                 cmp dl, dh
-                jle finloop:
+                jle finloop
                 swap:
                     swp si, ax
                 finloop:
