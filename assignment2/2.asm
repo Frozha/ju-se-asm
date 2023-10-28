@@ -31,6 +31,7 @@ endm
 .data
     num db 1,3,3,5,10,2,3,4,12,11
     str1 db 5 dup("$")
+    msg1 db 'largest element : $'
 .code
     main proc
         mov ax, @data
@@ -55,6 +56,9 @@ endm
             skipd:
         loop check
 
+        mov dx, offset msg1
+        mov ah, 09h
+        int 21h
         pop dx
         tostr dx, str1
         mov dx, offset str1
